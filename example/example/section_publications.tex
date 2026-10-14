@@ -1,0 +1,31 @@
+% Awesome Source CV LaTeX Template
+%
+% This template has been downloaded from:
+% https://github.com/darwiin/awesome-neue-latex-cv
+%
+% Author:
+% Lambtho12
+%
+% Reference section based on the template of LianTze Lim
+% https://www.overleaf.com/latex/templates/a-customised-curve-cv/mvmbhkwsnmwv
+%
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+
+%Section: Publications
+% Aucune publication dans le CV actuel : cette section est désactivée dans cv.tex.
+% Pour l'activer :
+%   1. renseigner vos publications dans my_publications.bib
+%   2. décommenter \addbibresource{my_publications.bib} et \input{section_publications} dans cv.tex
+\sectionTitle{Publications}{\faBook}
+
+\begin{publications}
+\nocite{*}
+
+\printbibliography[heading=subbibliography,title={Articles},type=article]
+
+\printbibliography[heading=subbibliography,title={Conférences},type=inproceedings]
+
+\printbibliography[heading=subbibliography,title={Livres et chapitres},filter={booksandchapters}]
+
+\end{publications}

@@ -11,41 +11,45 @@
 % CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
 
 \documentclass[localFont,alternative,10pt,compact]{yaac-another-awesome-cv}
-\name{Christophe}{Roger}
-\tagline{Architecte Logiciel | Développeur/Concepteur Senior Java/JEE}
-\photo{2.5cm}{darwiin}
+\name{\textbf{Samuel}}{SIKATI KENMOGNE}
+\tagline{Ingénieur Logiciel, Assurance Qualité \& Analyse Fonctionnelle}
+\photo{2.5cm}{samuel}
 \socialinfo{
-	\linkedin{christopheroger}
-	\github{darwiin}\\
-	\smartphone{+687 831 831}
-	\email{christophe.roger@mail.com}\\
-	\address{17 Rue de Bretagne, 98835 Dumbéa, Nouvelle-Calédonie}\\
-	\infos{Né le 23 septembre 1982 (35 ans) à Nouméa, Nouvelle-Calédonie}
+	\linkedin{samuel-sikati-kenmogne-57953a1b7}
+	\github{sikatikenmogne}\\
+	\smartphone{(+237) 657 407 989}
+	\email{sikatikenmogne@gmail.com}
+	\website{https://samuelsikati.com}{samuelsikati.com}\\
+	\address{Douala, Cameroun}
 }
 
 % Uncomment the following line and use a value from 1.5cm to 2.5cm
-% \setleftcolumnlength{2.5cm}
+\setleftcolumnlength{1cm}
 
-% Uncomment to add the bibliography (see section_publications.tex)
-\addbibresource{my_publications.bib}
+% Marge du pied de page : footskip = distance entre le bas du texte et le pied de page
+\geometry{bottom=1cm, footskip=0.4cm}
+
+% Décommenter pour ajouter la bibliographie (voir section_publications.tex)
+%\addbibresource{my_publications.bib}
 
 \begin{document}
 
 	\makecvheader
 
 	\makecvfooter
-		{\textsc{\today}} % \selectlanguage{english}\today
-		{\textsc{Christophe Roger - CV}}
+		{\textsc{\today}}
+		{\textsc{Samuel Sikati Kenmogne - CV}}
 		{\thepage}
 
-	\input{section_headline_archi}
-	\input{section_competences}				% Section compétence
+	\input{section_headline}				% Accroche
+	\input{section_competences}				% Section compétences
+	\input{section_scolarite}				% Section formation + certifications
+
 	\input{section_experience_short}		% Section expérience
-	\input{section_langues}					% Section langues
-	\input{section_scolarite}				% Section scolarité
-	%\input{section_interets}				% Section intérêts
-	\input{section_projets}
-	\input{section_references} 				% Section références
-	\input{section_publications}			% Section publications
+	\input{section_langues}					% Section langues + forces
+	\input{section_interets}				% Section intérêts
+	%\input{section_projets}				% Section projets (à compléter)
+	%\input{section_references}				% Section références
+	%\input{section_publications}			% Section publications (aucune pour le moment)
 
 \end{document}

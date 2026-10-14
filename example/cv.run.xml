@@ -86,7 +86,6 @@
       <file>cv-blx.bib</file>
     </requires>
     <requires type="editable">
-      <file>my_publications.bib</file>
     </requires>
     <requires type="static">
       <file>biblatex.bst</file>

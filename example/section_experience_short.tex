@@ -5,81 +5,91 @@
 %
 % Author:
 % Christophe Roger
+% Contenu adapté pour : Samuel SIKATI KENMOGNE
 %
 % Template license:
 % CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
 
+% Lien coloré vers le site de l'entreprise : \company{<url>}{<nom>}
+\providecommand{\company}[2]{{\color{linkcolor}\href{#1}{#2}}}
+% Même rendu sans lien, quand aucun site officiel n'est disponible : \companynolink{<nom>}
+\providecommand{\companynolink}[1]{{\color{linkcolor}#1}}
+
 %Section: Work Experience at the top
-\sectionTitle{Expériences Professionelles}{\faSuitcase}
+\sectionTitle{Expériences Professionnelles}{\faSuitcase}
 %\renewcommand{\labelitemi}{$\bullet$}
 \begin{experiences}
   \experience
-    {Aujourd'hui}   {Architecte logiciel | Développeur/Concepteur Senior JEE}{EPI}{Nouvelle-Calédonie}
-    {Décembre 2015} {
+    {Nov. 2026}   {Ingénieur SI / Analyste en Assurance Qualité Logicielle}{\company{https://www.orange.cm}{Orange Cameroun}}{Douala}
+    {Nov. 2025} {
+                      \textbf{Qualification de la migration d'une plateforme mobile money}
                       \begin{itemize}
-                        \item Applications hybrides : Conception et développement
-                        \item Développements de micro services REST avec Spring Boot : Conception et développement
-                        \item Product Owner : Projet Simply City
-                        \item Reconstruction de la plateforme d'intégration
-                        \item Migration des projets Java sous Maven
-                        \item Evolutions et corrections des bugs du framework de développement interne  
+                        \item Conception de \textbf{plusieurs cahiers de recette} couvrant l'ensemble des \textbf{chantiers de test} de la migration
+                        \item \textbf{Tests d'intégration système} et \textbf{end-to-end multicanaux} (USSD, mobile, web) des flux transactionnels
+                        \item Qualification de la bascule : \textbf{tests de migration de données} et du \textbf{plan de reprise d'activité (PRA)}
+                        \item Automatisation des \textbf{tests de régression} web (\textbf{Playwright}) et API (\textbf{Bruno}), scripts de \textbf{tests de performance}
+                        \item Animation des \textbf{campagnes UAT} avec les métiers : jeux de données, formation, suivi des anomalies
+                      \end{itemize}
+                      \textbf{Recette fonctionnelle d'une solution de gestion du courrier entrant (Maarch Courrier)}
+                      \begin{itemize}
+                        \item Paramétrage et \textbf{recette fonctionnelle} : \textbf{validation des exigences métier} et tests d'acceptation
+                        \item \textbf{Conduite du changement} : documentation, \textbf{formation des utilisateurs} et support au déploiement
                       \end{itemize}
                     }
-                    {Spring Boot,IntelliJ Idea,Ionic 3,Typescript,Firebase,Apache Tomcat,Eclipse,Maven,Jenkins,Nexus}
+                    {UAT,Tests E2E,USSD,Migration de données,PRA,Régression,Performance,Playwright,Bruno,Maarch Courrier}
   \emptySeparator
   \experience
-    {Novembre 2015} {Architecte logiciel | Développeur/Concepteur Senior JEE}{\link{http://www.cafat.nc}{CAFAT}}{Nouvelle-Calédonie}
-    {Avril 2014}    {
+    {Juin 2025}   {Ingénieur Logiciel Junior}{\company{https://societegenerale.cm/fr/}{Société Générale Cameroun}}{Douala}
+    {Jan. 2025} {
+                      \textbf{Développement d'une solution de gestion des anomalies opérationnelles bancaires}
                       \begin{itemize}
-                        \item Support et encadrement technique des équipes de développement                           
-                        \item Suivi, validation et intégration des développements externalisés                        
-                        \item Implémentation, analyse et livraison de correctifs de bugs sur les applicatifs métiers  
-                        \item Evolutions et corrections des bugs du framework de développement interne                
-                        \item Rédaction des dossiers d'architecture en collaboration avec les architectes fonctionnels
-                        \item Veille technologique                                                                    
+                        \item Mise en place de la traçabilité des résolutions et du suivi des KPI opérationnels en temps réel
+                        \item \textbf{Réduction de 25\,\% du temps de traitement} des anomalies et \textbf{diminution de 35\,\% des erreurs manuelles}
                       \end{itemize}
                     }
-                    {IntelliJ Idea,JBoss EAP,Eclipse,Maven,Jenkins,Nexus}
+                    {.NET Core,C\#,Développement web,KPI,Tableaux de bord,Traçabilité,Gestion des anomalies,Banque}
   \emptySeparator
   \experience
-    {Mars 2014}     {Architecte logiciel | Développeur/Concepteur Senior JEE}{Bull SAS}{France}
-    {Avril 2012}    {
+    {Fév. 2024}   {Développeur Logiciel}{\company{https://www.boissonsducameroun.com}{Boissons du Cameroun}}{Douala}
+    {Sept. 2023} {
+                      \textbf{Digitalisation du processus d'analyse des causes profondes des incidents (SCAT -- DNV)}
                       \begin{itemize}
-                        \item Reconstruction du dépôt fiduciaire de logiciels de Bull Coriolis : réalisation, coordination et reporting
-                        \item Migration du serveur métier vers Open Cobol : suivi de projet et reporting                
-                        \item Solution documentaire collaborative (wiki) : mise en place et formation                   
-                        \item Evolutions et corrections : analyse, conception et développement                          
-                        \item Mise en place de conventions de code                                                      
-                        \item Mise en place d'un framework de développement d'interface web (jQuery, Bootstrap, taglibs)
+                        \item Développement d'une \textbf{application web} (Symfony, Flask) dédiée aux investigations d'incidents
+                        \item \textbf{Réduction de 40\,\% du temps d'investigation} et amélioration de la qualité des rapports d'analyse
                       \end{itemize}
                     }
-                    {Tomcat,Spring,Eclipse,Maven,Oracle DB,Hibernate,RichFaces,AngularJS,jQuery,Bootstrap,LESS}
+                    {Symfony,PHP,Flask,Python,Application web,SCAT -- DNV,HSE,Analyse des causes profondes}
   \emptySeparator
-  \consultantexperience
-  {Mars 2012}       {Ingénieur Consultant}{Altran Technologies}{France}
-  {Décembre 2007}   {IT Specialist}{IBM, Software Solutions Center of Excellence}
-                    {
+  \experience
+    {Avr. 2023}   {Analyste Programmeur}{\company{https://www.perenco.com}{Perenco Rio del Rey}}{Douala}
+    {Jan. 2023} {
+                      \textbf{Optimisation du contrôle qualité QHSE par une application mobile et des macros Excel}
                       \begin{itemize}
-                        \item \textbf{Projet eTACT} pour \href{https://www.edqm.eu/fr/contexte-mission-cd-p-phcmed.html}{EDQM} : Conception et développement JEE.
-                        \item Application \emph{Android} pour tablette : Conception et développement.
-                        \item Projets d'intégration, \emph{Enterprise Service Bus} (ESB) et moteur de processus:
-                        \begin{itemize}
-                          \item Conception et développement JEE
-                          \item Définition et implémentation des processus métiers et médiations
-                        \end{itemize}
-                        \item Solutions RFID : Conception et développement Java (JEE, JSE et JME), Analyse, \emph{POC}, documentation et présentation technique du protocole ONS
+                        \item Développement d'une \textbf{application mobile Android} (Kotlin) et automatisation des contrôles en \textbf{VBA Excel}
+                        \item \textbf{Amélioration de 20\,\% de l'efficacité des audits} et meilleure conformité réglementaire
                       \end{itemize}
                     }
-                    {Rational Software Architect (\emph{RSA}),Eclipse,\emph{WAS} 7,DB2,Hibernate,Ant,RichFaces,Infosphere Traceability Server,Android,Websphere Integration Developer,Websphere Process Server}
-  \emptySeparator         
+                    {Kotlin,Android,Application mobile,VBA,Excel,QHSE,Audit,Conformité réglementaire,Oil \& Gas}
+  \emptySeparator
   \experience
-  {Novembre 2007}  {Ingénieur d'étude}{IBM}{France}
-  {Février 2007}   {
-                      Projet de prototypage \emph{Campus Nova} pour le Crédit Agricole : Développement d'une solution de paiement NFC sur téléphones portables.  
+    {Oct. 2022}   {Développeur Back-End}{\companynolink{WinMoney Cameroun}}{Yaoundé}
+    {Juin 2022} {
+                      \textbf{Développement de l'API RESTful d'une plateforme de création de contenus visuels}
                       \begin{itemize}
-                        \item Implémentation d'un porte monnaie électronique                                            
-                        \item Intégration avec une plateforme de paiement en ligne  
+                        \item Conception et implémentation des \textbf{endpoints REST} et de la logique métier avec \textbf{Spring Boot}
+                        \item Support de \textbf{jusqu'à 500 requêtes/minute} avec un temps de réponse moyen de 300\,ms
                       \end{itemize}
-                  }
-                  {J2ME,Java Card,DB2,\emph{WAS}}  
+                    }
+                    {Java,Spring Boot,API REST,Back-end,Performance,Scalabilité}
+  \emptySeparator
+  \experience
+    {Oct. 2021}   {Développeur Back-End Junior}{\company{https://kiama.cm}{Kiama S.A}}{Yaoundé}
+    {Juin 2021} {
+                      \textbf{Mise en place d'un système de recommandation multicanal (email/SMS) pour \company{https://ekiosque.cm}{ekiosque.cm}}
+                      \begin{itemize}
+                        \item Personnalisation des recommandations par \textbf{machine learning} (PHP-ML) et diffusion par email et SMS
+                        \item \textbf{Augmentation de 15\,\% de l'engagement utilisateur} et amélioration du taux de conversion
+                      \end{itemize}
+                    }
+                    {Symfony,PHP,PHP-ML,Machine Learning,Recommandation,Email,SMS,Presse numérique}
 \end{experiences}
