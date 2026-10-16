@@ -224,6 +224,16 @@
 % Usage; \sociallink{<icon>}{<label>}
 \newcommand{\sociallink}[3]{\mbox{\textcolor{symbolcolor}{#1}\link{#2}{#3}\hspace{0.8em}}}
 
+
+% Separator between header contact items
+% Usage: \cvsep
+\newcommand{\cvsep}{\textcolor{darkGrey}{|}}
+
+% Define the location line printed under the tagline in the header
+% Usage: \headeraddress{<city, country>}
+\newcommand*{\headeraddress}[1]{\def\@headeraddress{#1}}
+
+
 % Define author's name
 % Usage: \name{<firstname>}{<lastname>}
 % Usage: \firstname{<firstname>}

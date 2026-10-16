@@ -160,12 +160,14 @@
   %\setmainfont[BoldFont = Helvetica Neue, ItalicFont=Helvetica Neue Thin Italic ,SmallCapsFont = Helvetica Neue Light]{Helvetica Neue Thin}
   \setmainfont{Source Sans Pro Light}[
     BoldFont = SourceSansPro-Regular,
+    BoldItalicFont = Source Sans Pro Semibold Italic,
     ItalicFont= Source Sans Pro Light Italic]
 }
 {
   \setmainfont{SourceSansPro-Light}[
     Path = fonts/,
     BoldFont = SourceSansPro-Regular,
+    BoldItalicFont = SourceSansPro-SemiboldIt,
     ItalicFont = SourceSansPro-LightIt]
 }
 
@@ -218,11 +220,19 @@
 
 % Render a text with its symbol
 % Usage; \socialtext{<icon>}{<label>}
-\newcommand{\socialtext}[2]{\mbox{\textcolor{symbolcolor}{#1}#2\hspace{0.8em}}}
+\newcommand{\socialtext}[2]{\mbox{\hspace{0.4em}\textcolor{symbolcolor}{#1}\hspace{0.35em}#2\hspace{0.4em}}}
 
 % Render a link with its symbol
 % Usage; \sociallink{<icon>}{<label>}
-\newcommand{\sociallink}[3]{\mbox{\textcolor{symbolcolor}{#1}\link{#2}{#3}\hspace{0.8em}}}
+\newcommand{\sociallink}[3]{\mbox{\hspace{0.4em}\textcolor{symbolcolor}{#1}\hspace{0.35em}\link{#2}{#3}\unskip\hspace{0.4em}}}
+
+% Separator between header contact items
+% Usage: \cvsep
+\newcommand{\cvsep}{\textcolor{darkGrey}{|}}
+
+% Define the location line printed under the tagline in the header
+% Usage: \headeraddress{<city, country>}
+\newcommand*{\headeraddress}[1]{\def\@headeraddress{#1}}
 
 % Define author's name
 % Usage: \name{<firstname>}{<lastname>}
@@ -347,22 +357,16 @@
     }{}
     \resumetitle{\@tagline}
   }{
-    \ifundef{\@photodiameter}{
-      \begin{minipage}{\linewidth}
-    }{
-      \begin{minipage}{\dimexpr\linewidth-\@photodiameter-2em}
-    }
-    \user{\@firstname}{\@lastname}\\
-    \resumetitle{\@tagline}
-    \smallskip\\
-    \small{\@socialinfo}
-    \end{minipage}
-    \ifdef{\@photodiameter}{
-      \begin{minipage}{\@photodiameter}
-        \idphoto
-      \end{minipage}
-    }{}
-    \bigskip
+    % Centred header: name, tagline, location, contact line
+    \begin{center}\setlength{\parskip}{0pt}
+      {\fontsize{30pt}{34pt}\selectfont\color{black!55}\@firstname\ \textbf{\color{black!85}\@lastname}}\par
+      \vspace{3pt}
+      {\large\color{accentcolor}\bfseries\scshape\@tagline}\par
+      \ifdef{\@headeraddress}{\vspace{1pt}{\small\itshape\color{black!55}\@headeraddress}\par}{}
+      \vspace{4pt}
+      {\footnotesize\colorlet{linkcolor}{black!75}\colorlet{symbolcolor}{black!75}\color{black!75}\@socialinfo}
+    \end{center}
+    \vspace{2pt}
   }
 }
 
@@ -439,12 +443,15 @@
 %                      <Experience description (Could be a list)>
 %                    }
 %                    {<Technology list>}
-\newcommand\experience[7]{
-  \textbf{#1}    & \textbf{#2, \textsc{#3}, #4}   								\\*
-  \textbf{#5}    & \begin{minipage}[t]{\rightcolumnlength}
-  					         #6
+% Optional first argument: contract type (Stage, CDD, CDI...), printed under the start date
+% Usage: \experience[<contract>]{<End date>}{<Title>}{<Enterprise>}{<Country>}{<Start date>}{<Description>}{<Tags>}
+\newcommand\experience[8][]{
+  \textbf{#2}    & \textbf{#3, \textsc{#4}, #5}   								\\*
+  \begin{tabular}[t]{@{}r@{}}\textbf{#6}\ifstrempty{#1}{}{\\[-1pt]{\footnotesize\bfseries\itshape\color{black!70}\begin{tabular}[t]{@{}r@{}}#1\end{tabular}}}\end{tabular}
+                 & \begin{minipage}[t]{\rightcolumnlength}
+  					         #7
                    \end{minipage}										\\*
-                 & \footnotesize{\foreach \n in {#7}{\cvtag{\n}}} 	\\
+                 & \footnotesize{\foreach \n in {#8}{\cvtag{\n}}} 	\\
   }
 
 % Render a consultant experience in the experiences environment
