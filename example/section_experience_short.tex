@@ -14,6 +14,8 @@
 \providecommand{\company}[2]{{\color{linkcolor}\href{#1}{#2}}}
 % Même rendu sans lien, quand aucun site officiel n'est disponible : \companynolink{<nom>}
 \providecommand{\companynolink}[1]{{\color{linkcolor}#1}}
+% Intitulé de projet / contexte, distinct du titre du poste : \projet{<intitulé>}
+\providecommand{\projet}[1]{\leavevmode{\bfseries\itshape\color{black!70}#1}}
 
 %Section: Work Experience at the top
 \sectionTitle{Expériences Professionnelles}{\faSuitcase}
@@ -22,7 +24,7 @@
   \experience[CDD]
     {Aujourd'hui}   {Ingénieur SI / Analyste en Assurance Qualité Logicielle}{\company{https://www.orange.cm}{Orange Cameroun}}{Douala}
     {Nov. 2025} {
-                      \textbf{Qualification de la migration d'une plateforme mobile money}
+                      \projet{Qualification de la migration d'une plateforme mobile money}
                       \begin{itemize}
                         \item Conception de plusieurs cahiers de recette couvrant l'ensemble des chantiers de test de la migration
                         \item Tests d'intégration système et end-to-end multicanaux (USSD, mobile, web) des flux transactionnels
@@ -30,7 +32,7 @@
                         \item Automatisation des tests de régression web (Playwright) et API (Bruno), scripts de tests de performance
                         \item Animation des campagnes UAT avec les métiers : jeux de données, formation, suivi des anomalies
                       \end{itemize}
-                      \textbf{Recette fonctionnelle d'une solution de gestion du courrier entrant (Maarch Courrier)}
+                      \projet{Recette fonctionnelle d'une solution de gestion du courrier entrant (Maarch Courrier)}
                       \begin{itemize}
                         \item Paramétrage et recette fonctionnelle : validation des exigences métier et tests d'acceptation
                         \item Conduite du changement : documentation, formation des utilisateurs et support au déploiement
@@ -41,10 +43,11 @@
   \experience[Stage de\\fin d'études]
     {Juin 2025}   {Ingénieur Logiciel Junior}{\company{https://societegenerale.cm/fr/}{Société Générale Cameroun}}{Douala}
     {Jan. 2025} {
-                      \textbf{Développement d'une solution de gestion des anomalies opérationnelles bancaires}
+                      \projet{Développement d'une solution de suivi des anomalies opérationnelles bancaires}
                       \begin{itemize}
-                        \item Mise en place de la traçabilité des résolutions et du suivi des KPI opérationnels en temps réel
-                        \item \textbf{Réduction de 25\,\% du temps de traitement} des anomalies et \textbf{diminution de 35\,\% des erreurs manuelles}
+                        \item Modélisation et implémentation du \textbf{workflow de plans d'action correctifs} : échéances, relances automatiques et preuves de correction, pour un traitement des anomalies de bout en bout
+                        \item Mise en place de \textbf{tableaux de bord KPI} et automatisation du \textbf{reporting}, jusque-là manuel
+                        \item \textbf{Réduction de 25\,\% du temps de traitement} des anomalies et \textbf{de 35\,\% des erreurs manuelles}
                       \end{itemize}
                     }
                     {.NET Core,C\#,Développement web,KPI,Tableaux de bord,Traçabilité,Gestion des anomalies,Banque}
@@ -52,8 +55,9 @@
   \experience[Stage académique]
     {Fév. 2024}   {Développeur Logiciel}{\company{https://www.boissonsducameroun.com}{Boissons du Cameroun}}{Douala}
     {Sept. 2023} {
-                      \textbf{Digitalisation du processus d'analyse des causes profondes des incidents (SCAT -- DNV)}
+                      \projet{Digitalisation du processus d'analyse des causes profondes des incidents (SCAT -- DNV)}
                       \begin{itemize}
+                        \item Modélisation de la matrice SCAT (contacts, causes immédiates et fondamentales, actions de contrôle)
                         \item Développement d'une application web (Symfony, Flask) dédiée aux investigations d'incidents
                         \item \textbf{Réduction de 40\,\% du temps d'investigation} et amélioration de la qualité des rapports d'analyse
                       \end{itemize}
@@ -61,9 +65,9 @@
                     {Symfony,PHP,Flask,Python,Application web,SCAT -- DNV,HSE,Analyse des causes profondes}
   \emptySeparator
   \experience[Stage académique]
-    {Avr. 2023}   {Analyste Programmeur}{\company{https://www.perenco.com}{Perenco Rio del Rey}}{Douala}
+    {Avr. 2023}   {Analyste Programmeur}{\company{https://www.perenco.com}{Perenco Cameroun}}{Douala}
     {Jan. 2023} {
-                      \textbf{Optimisation du contrôle qualité QHSE par une application mobile et des macros Excel}
+                      \projet{Optimisation du contrôle qualité QHSE par une application mobile et des macros Excel}
                       \begin{itemize}
                         \item Développement d'une application mobile Android (Kotlin) et automatisation des contrôles en VBA Excel
                         \item \textbf{Amélioration de 20\,\% de l'efficacité des audits} et meilleure conformité réglementaire
@@ -74,7 +78,7 @@
   \experience[Stage académique]
     {Oct. 2022}   {Développeur Back-End}{\companynolink{WinMoney Cameroun}}{Yaoundé}
     {Juin 2022} {
-                      \textbf{Développement de l'API RESTful d'une plateforme de création de contenus visuels}
+                      \projet{Développement de l'API RESTful d'une plateforme de création de contenus visuels}
                       \begin{itemize}
                         \item Conception et implémentation des endpoints REST et de la logique métier avec Spring Boot
                         \item Support de \textbf{jusqu'à 500 requêtes/minute} avec un temps de réponse moyen de 300\,ms
@@ -85,7 +89,7 @@
   \experience[Stage académique]
     {Oct. 2021}   {Développeur Back-End Junior}{\company{https://kiama.cm}{Kiama S.A}}{Yaoundé}
     {Juin 2021} {
-                      \textbf{Mise en place d'un système de recommandation multicanal (email/SMS) pour \company{https://ekiosque.cm}{ekiosque.cm}}
+                      \projet{Mise en place d'un système de recommandation multicanal (email/SMS) pour \company{https://ekiosque.cm}{ekiosque.cm}}
                       \begin{itemize}
                         \item Personnalisation des recommandations par machine learning (PHP-ML) et diffusion par email et SMS
                         \item \textbf{Augmentation de 15\,\% de l'engagement utilisateur} et amélioration du taux de conversion

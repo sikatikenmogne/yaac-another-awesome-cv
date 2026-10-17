@@ -137,7 +137,7 @@
 %\font\fb=''[cmr10]''                      % for use with \LaTeX command
 
 % Setup CV sections
-\titleformat{\section}{\Large\raggedright}{}{0em}{}[\titlerule]
+\titleformat{\section}{\Large\bfseries\raggedright}{}{0em}{}[\titlerule]
 \titlespacing{\section}{0pt}{2pt}{2pt}
 
 % Configure list
@@ -357,14 +357,14 @@
     }{}
     \resumetitle{\@tagline}
   }{
-    % Centred header: name, tagline, location, contact line
+    % Centred header: name, tagline, contact line, location
     \begin{center}\setlength{\parskip}{0pt}
       {\fontsize{30pt}{34pt}\selectfont\color{black!55}\@firstname\ \textbf{\color{black!85}\@lastname}}\par
       \vspace{3pt}
       {\large\color{accentcolor}\bfseries\scshape\@tagline}\par
-      \ifdef{\@headeraddress}{\vspace{1pt}{\small\itshape\color{black!55}\@headeraddress}\par}{}
-      \vspace{4pt}
-      {\footnotesize\colorlet{linkcolor}{black!75}\colorlet{symbolcolor}{black!75}\color{black!75}\@socialinfo}
+      \vspace{1pt}
+      {\footnotesize\colorlet{linkcolor}{black!75}\colorlet{symbolcolor}{black!75}\color{black!75}\@socialinfo}\par
+      \ifdef{\@headeraddress}{\vspace{1pt}{\footnotesize\textcolor{black!75}{\locationSymbol}\hspace{0.35em}\itshape\color{black!55}\textbf{\@headeraddress}}\par}{}
     \end{center}
     \vspace{2pt}
   }
@@ -446,7 +446,7 @@
 % Optional first argument: contract type (Stage, CDD, CDI...), printed under the start date
 % Usage: \experience[<contract>]{<End date>}{<Title>}{<Enterprise>}{<Country>}{<Start date>}{<Description>}{<Tags>}
 \newcommand\experience[8][]{
-  \textbf{#2}    & \textbf{#3, \textsc{#4}, #5}   								\\*
+  \textbf{#2} & \textbf{{\fontsize{10.8pt}{12pt}\selectfont#3}, \textsc{#4}, #5}   								\\*
   \begin{tabular}[t]{@{}r@{}}\textbf{#6}\ifstrempty{#1}{}{\\[-1pt]{\footnotesize\bfseries\itshape\color{black!70}\begin{tabular}[t]{@{}r@{}}#1\end{tabular}}}\end{tabular}
                  & \begin{minipage}[t]{\rightcolumnlength}
   					         #7
