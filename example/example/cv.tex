@@ -22,6 +22,17 @@
 }
 \headeraddress{Douala, Cameroun}
 
+% Métadonnées PDF (lues par les ATS et les moteurs de recherche)
+\hypersetup{
+	pdftitle    = {CV - Samuel SIKATI KENMOGNE - Ingénieur Logiciel, Assurance Qualité \& Analyse Fonctionnelle},
+	pdfauthor   = {Samuel SIKATI KENMOGNE},
+	pdfsubject  = {Curriculum Vitae - Ingénieur Logiciel, Assurance Qualité (QA) et Analyse Fonctionnelle},
+	pdfkeywords = {Ingénieur Logiciel, Assurance Qualité Logicielle, QA, Analyste Fonctionnel, Recette fonctionnelle, UAT, Tests E2E, Tests de régression, Tests d'intégration, Automatisation des tests, Playwright, Bruno, Postman, Squash TM, BDD, Gherkin, Analyse des exigences, BPMN, UML, SysML, .NET Core, C\#, Symfony, PHP, React, TypeScript, API REST, SQL, PostgreSQL, SQL Server, Docker, Azure DevOps, Jenkins, GitLab, Scrum, Kanban, Douala, Cameroun},
+	pdfcreator  = {LaTeX},
+	pdflang     = {fr-FR},
+	pdfdisplaydoctitle = true
+}
+
 % Uncomment the following line and use a value from 1.5cm to 2.5cm
 % \setleftcolumnlength{2.5cm}
 
@@ -32,10 +43,10 @@
 
 	\makecvheader
 
-	\makecvfooter
+	\makecvfooter[{\itshape Fait à Douala, le \today. Je certifie sur l'honneur l'exactitude des informations contenues dans ce CV.}]
 		{\textsc{\today}}
-		{\textsc{Samuel Sikati Kenmogne - CV}}
-		{\thepage}
+		{\textsc{CV - Ingénieur Logiciel, Assurance Qualité \& Analyse Fonctionnelle}}
+		{Page \thepage / \pageref*{LastPage}}
 
 	\input{section_headline}				% Accroche
 	\input{section_competences}				% Section compétences

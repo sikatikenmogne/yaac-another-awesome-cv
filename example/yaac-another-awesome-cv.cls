@@ -98,6 +98,8 @@
 \RequirePackage[skins]{tcolorbox}
 \RequirePackage{fancyhdr}
 \RequirePackage{ifthen}
+\RequirePackage{lastpage}
+\RequirePackage{refcount}
 
 
 \DeclareUnicodeCharacter{00E9}{\'{e}}
@@ -151,7 +153,7 @@
 %\font\fb=''[cmr10]''                      % for use with \LaTeX command
 
 % Setup CV sections
-\titleformat{\section}{\Large\bfseries\raggedright}{}{0em}{}[\titlerule]
+\titleformat{\section}{\Large\cvsemibold\raggedright}{}{0em}{}[\titlerule]
 \titlespacing{\section}{0pt}{2pt}{2pt}
 
 % Configure list
@@ -176,6 +178,9 @@
     BoldFont = SourceSansPro-Regular,
     BoldItalicFont = Source Sans Pro Semibold Italic,
     ItalicFont= Source Sans Pro Light Italic]
+  % Semibold family: name, section titles and header links
+  \newfontfamily\cvsemibold{Source Sans Pro Semibold}[
+    ItalicFont = Source Sans Pro Semibold Italic]
 }
 {
   \setmainfont{SourceSansPro-Light}[
@@ -183,6 +188,10 @@
     BoldFont = SourceSansPro-Regular,
     BoldItalicFont = SourceSansPro-SemiboldIt,
     ItalicFont = SourceSansPro-LightIt]
+  % Semibold family: name, section titles and header links
+  \newfontfamily\cvsemibold{SourceSansPro-Semibold}[
+    Path = fonts/,
+    ItalicFont = SourceSansPro-SemiboldIt]
 }
 
 %New length definition
@@ -372,12 +381,13 @@
     \resumetitle{\@tagline}
   }{
     % Centred header: name, tagline, contact line, location
+    % Font sizes follow a constant ratio (~1.8): name 26pt -> tagline 14.4pt -> contacts 8pt
     \begin{center}\setlength{\parskip}{0pt}
-      {\fontsize{30pt}{34pt}\selectfont\color{black!55}\@firstname\ \textbf{\color{black!85}\@lastname}}\par
-      \vspace{3pt}
-      {\large\color{accentcolor}\bfseries\scshape\@tagline}\par
+      {\fontsize{26pt}{30pt}\selectfont\cvsemibold\color{black!55}\@firstname\ {\color{black!85}\@lastname}}\par
+      \vspace{2pt}
+      {\fontsize{14.4pt}{17pt}\selectfont\cvsemibold\color{accentcolor}\scshape\@tagline}\par
       \vspace{1pt}
-      {\footnotesize\colorlet{linkcolor}{black!75}\colorlet{symbolcolor}{black!75}\color{black!75}\@socialinfo}\par
+      {\footnotesize\cvsemibold\colorlet{linkcolor}{black!75}\colorlet{symbolcolor}{black!75}\color{black!75}\@socialinfo}\par
       \ifdef{\@headeraddress}{\vspace{1pt}{\footnotesize\textcolor{black!75}{\locationSymbol}\hspace{0.35em}\itshape\color{black!55}\textbf{\@headeraddress}}\par}{}
     \end{center}
     \vspace{2pt}
@@ -385,12 +395,22 @@
 }
 
 % Define a footer for CV
-% Usage: \makecvfooter{<left>}{<center>}{<right>}
-\newcommand*{\makecvfooter}[3]{%
+% Usage: \makecvfooter[<last page mention>]{<left>}{<center>}{<right>}
+% When the optional mention is given, the last page footer shows it in place of <left> and <center>
+% Every footer part uses the same font size (\cvfootersize)
+\newcommand*{\cvfootersize}{\footnotesize}
+\newcommand*{\cv@iflastpage}[2]{%
+  \ifnum\value{page}=\getpagerefnumber{LastPage}\relax#1\else#2\fi}
+\newcommand*{\makecvfooter}[4][]{%
   \fancyfoot{}
-  \fancyfoot[L]{#1}
-  \fancyfoot[C]{#2}
-  \fancyfoot[R]{#3}
+  \ifstrempty{#1}{%
+    \fancyfoot[L]{\cvfootersize#2}
+    \fancyfoot[C]{\cvfootersize#3}
+  }{%
+    \fancyfoot[L]{\cvfootersize\cv@iflastpage{#1}{#2}}
+    \fancyfoot[C]{\cvfootersize\cv@iflastpage{}{#3}}
+  }
+  \fancyfoot[R]{\cvfootersize#4}
 }
 
 % Resume part title definition
