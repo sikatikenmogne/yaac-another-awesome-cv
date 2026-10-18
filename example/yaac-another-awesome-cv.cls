@@ -73,6 +73,20 @@
 \RequirePackage[usenames,dvipsnames]{xcolor}
 \RequirePackage{fullpage}
 \RequirePackage[margin=1cm,footskip=0.45cm]{geometry}
+% ATS: make Font Awesome icons invisible to text extraction (copy/paste, ATS parsers)
+% The ToUnicode map of the Font Awesome fonts is rewritten so every icon is
+% extracted as a plain space, instead of glyph names such as "Angle-Right" or "SUITCASE".
+% Must be registered before fontawesome5 is loaded: the package loads its fonts immediately.
+\directlua{
+  luatexbase.add_to_callback("luaotfload.patch_font", function(tfmdata)
+    local name = string.lower((tfmdata.name or "") .. (tfmdata.fullname or ""))
+    if string.find(name, "fontawesome") and tfmdata.characters then
+      for _, chr in pairs(tfmdata.characters) do
+        chr.tounicode = "0020"
+      end
+    end
+  end, "yaac.fontawesome_tounicode")
+}
 \RequirePackage[fixed]{fontawesome5}
 \RequirePackage{hyperref}
 \RequirePackage{titlesec}
