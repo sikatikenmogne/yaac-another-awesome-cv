@@ -91,6 +91,7 @@
 \RequirePackage{hyperref}
 \RequirePackage{titlesec}
 \RequirePackage{array}
+\RequirePackage{tabularx}
 \RequirePackage{enumitem}
 \RequirePackage{longtable}
 \RequirePackage{etoolbox}
@@ -416,13 +417,22 @@
 % Resume part title definition
 \newcommand\sectionTitle[2]{\section{\texorpdfstring{\color{accentcolor}#2\enspace \textsc{#1}}{#1}}}
 
+% Width of the 'keywords' table (full text width by default)
+% Usage: \setkeywordswidth{<length>}, e.g. \setkeywordswidth{0.9\linewidth} or {17cm}
+\newcommand*{\cv@keywordswidth}{\linewidth}
+\newcommand*{\setkeywordswidth}[1]{\renewcommand*{\cv@keywordswidth}{#1}}
+
 % Define the 'keywords' environment
-\newenvironment{keywords}{%
+% Usage: \begin{keywords}[<width>] ... \end{keywords}
+% The optional <width> overrides \setkeywordswidth for this table only
+\newenvironment{keywords}[1][\cv@keywordswidth]{%
   \renewcommand{\arraystretch}{1.1}
 
-  \begin{tabular}{>{}r>{}p{13cm}}
+  % The description column takes all the space left by the labels within <width>
+  % (\tabularx/\endtabularx form is required inside \newenvironment)
+  \noindent\tabularx{#1}{@{}>{}r>{\raggedright\arraybackslash}X@{}}
 }{%
-  \end{tabular}
+  \endtabularx
 }
 
 % Render a scholarshipentry in the scolarship environment
@@ -484,8 +494,10 @@
   \begin{tabular}[t]{@{}r@{}}\textbf{#6}\ifstrempty{#1}{}{\\[-1pt]{\footnotesize\bfseries\itshape\color{black!70}\begin{tabular}[t]{@{}r@{}}#1\end{tabular}}}\end{tabular}
                  & \begin{minipage}[t]{\rightcolumnlength}
   					         #7
-                   \end{minipage}										\\*
-                 & \footnotesize{\foreach \n in {#8}{\cvtag{\n}}} 	\\
+                   \end{minipage}
+  % Empty <Tags> argument ({}) skips the tag row
+  \ifstrempty{#8}{\\}{\\*
+                 & \footnotesize{\foreach \n in {#8}{\cvtag{\n}}} 	\\}
   }
 
 % Render a consultant experience in the experiences environment

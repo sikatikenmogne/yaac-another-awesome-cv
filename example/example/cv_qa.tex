@@ -1,0 +1,61 @@
+% !TEX TS-program = luatex
+% Awesome Source CV LaTeX Template
+%
+% This template has been downloaded from:
+% https://github.com/darwiin/awesome-neue-latex-cv
+%
+% Author:
+% Christophe Roger (Darwiin)
+%
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+
+\documentclass[localFont,alternative,10pt,compact]{yaac-another-awesome-cv}
+\name{Samuel}{SIKATI KENMOGNE}
+\tagline{Ingénieur QA / Test Logiciel}
+\socialinfo{
+	\smartphone{(+237) 657 407 989}
+	\email{sikatikenmogne@gmail.com}
+	\linkedin{samuelsikati}
+	\github{sikatikenmogne}
+	\website{https://samuelsikati.com}{samuelsikati.com}
+}
+\headeraddress{Douala, Cameroun}
+
+% Métadonnées PDF (lues par les ATS et les moteurs de recherche)
+\hypersetup{
+	pdftitle    = {CV - Samuel SIKATI KENMOGNE - Ingénieur QA / Test Logiciel},
+	pdfauthor   = {Samuel SIKATI KENMOGNE},
+	pdfsubject  = {Curriculum Vitae - Ingénieur Logiciel, Assurance Qualité (QA) et Analyse Fonctionnelle},
+	pdfkeywords = {Ingénieur Logiciel, Assurance Qualité Logicielle, QA, Analyste Fonctionnel, Recette fonctionnelle, UAT, Tests E2E, Tests de régression, Tests d'intégration, Automatisation des tests, Playwright, Bruno, Postman, Squash TM, BDD, Gherkin, Analyse des exigences, BPMN, UML, SysML, .NET Core, C\#, Symfony, PHP, React, TypeScript, API REST, SQL, PostgreSQL, SQL Server, Docker, Azure DevOps, Jenkins, GitLab, Scrum, Kanban, Douala, Cameroun},
+	pdfcreator  = {LaTeX},
+	pdflang     = {fr-FR},
+	pdfdisplaydoctitle = true
+}
+
+% Uncomment the following line and use a value from 1.5cm to 2.5cm
+% \setleftcolumnlength{2.5cm}
+
+% Décommenter pour ajouter la bibliographie (voir section_publications.tex)
+%\addbibresource{my_publications.bib}
+
+\begin{document}
+
+	\makecvheader
+
+	\makecvfooter[{\itshape Fait à Douala, le \today. Je certifie sur l'honneur l'exactitude des informations contenues dans ce CV.}]
+		{\textsc{\today}}
+		{\textsc{CV - Ingénieur QA / Test Logiciel}}
+		{Page \thepage / \pageref*{LastPage}}
+
+	\input{section_headline}				% Accroche
+	\input{section_competences_qa}				% Section compétences
+	\input{section_experience_short_qa}		% Section expérience
+	\input{section_scolarite}				% Section formation + certifications
+	\input{section_langues}					% Section langues + forces
+	\input{section_interets}				% Section intérêts
+	%\input{section_projets}				% Section projets (à compléter)
+	%\input{section_references}				% Section références
+	%\input{section_publications}			% Section publications (aucune pour le moment)
+
+\end{document}

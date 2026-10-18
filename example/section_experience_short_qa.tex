@@ -1,0 +1,92 @@
+% Contenu adapté pour : Samuel SIKATI KENMOGNE -- version Ingénieur QA / Test logiciel
+%
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+
+% Lien coloré vers le site de l'entreprise : \company{<url>}{<nom>}
+\providecommand{\company}[2]{{\color{linkcolor}\href{#1}{#2}}}
+% Même rendu sans lien, quand aucun site officiel n'est disponible : \companynolink{<nom>}
+\providecommand{\companynolink}[1]{{\color{linkcolor}#1}}
+% Intitulé de projet / contexte, distinct du titre du poste : \projet{<intitulé>}
+\providecommand{\projet}[1]{\leavevmode{\bfseries\itshape\color{black!70}#1}}
+
+%Section: Expérience QA
+\sectionTitle{Expériences Professionnelles}{\faSuitcase}
+\begin{experiences}
+  \experience[CDD]
+    {Aujourd'hui}   {Ingénieur SI / Analyste en Assurance Qualité Logicielle}{\company{https://www.orange.cm}{Orange Cameroun}}{Douala}
+    {Nov. 2025} {
+                      \projet{Qualification de la migration d'une plateforme mobile money}
+                      \begin{itemize}
+                        \item Contribution à la stratégie de test et planification de chantiers de recette
+                        \item Conception de \textbf{1\,547 cas de test} répartis en cahiers de recette couvrant tous les chantiers de la migration
+                        \item Tests d'intégration système et end-to-end multicanaux (USSD, mobile, web) des flux transactionnels
+                        \item Qualification de la bascule : migration de données, plan de reprise d'activité (PRA), performance (Locust)
+                        \item Automatisation de \textbf{640 tests de régression} API (Bruno) et web (Playwright), exécutés en CI (Azure DevOps)
+                        \item Animation des campagnes UAT avec les métiers et qualification de \textbf{262 anomalies} avant la bascule
+                      \end{itemize}
+                      \projet{Recette fonctionnelle d'une solution de gestion du courrier entrant (Maarch Courrier)}
+                      \begin{itemize}
+                        \item Paramétrage, validation des exigences et tests d'acceptation ; formation et support au déploiement
+                      \end{itemize}
+                    }
+                    {Stratégie de test,UAT,Tests E2E,Tests API,Régression,PRA,Playwright,Bruno,Locust,Azure DevOps}
+  \emptySeparator
+  \experience[Stage de\\fin d'études]
+    {Juin 2025}   {Ingénieur Logiciel Junior}{\company{https://societegenerale.cm/fr/}{Société Générale Cameroun}}{Douala}
+    {Jan. 2025} {
+                      \projet{Développement d'une solution de suivi des anomalies opérationnelles bancaires}
+                      \begin{itemize}
+                        \item Modélisation et implémentation du workflow de plans d'action correctifs (échéances, relances, preuves)
+                        \item Mise en place de tableaux de bord KPI et automatisation du reporting, jusque-là manuel
+                        \item Réalisation des tests end-to-end de l'application avant sa mise en production
+                        \item \textbf{Réduction de 25\,\% du temps de traitement} des anomalies et \textbf{de 35\,\% des erreurs manuelles}
+                      \end{itemize}
+                    }
+                    {.NET Core,C\#,Tests E2E,Gestion des anomalies,Traçabilité,KPI,Tableaux de bord,Banque}
+  \emptySeparator
+  \experience[Stage académique]
+    {Fév. 2024}   {Développeur Logiciel}{\company{https://www.boissonsducameroun.com}{Boissons du Cameroun}}{Douala}
+    {Sept. 2023} {
+                      \projet{Digitalisation du processus d'analyse des causes profondes des incidents (SCAT -- DNV)}
+                      \begin{itemize}
+                        \item Modélisation de la matrice SCAT (contacts, causes immédiates et fondamentales, actions de contrôle)
+                        \item Développement d'une application web (Symfony, Flask) dédiée aux investigations d'incidents
+                        \item \textbf{Réduction de 40\,\% du temps d'investigation} et amélioration de la qualité des rapports d'analyse
+                      \end{itemize}
+                    }
+                    {Symfony,PHP,Flask,Python,Application web,SCAT -- DNV,HSE,Analyse des causes profondes}
+  \emptySeparator
+  \experience[Stage académique]
+    {Avr. 2023}   {Analyste Programmeur}{\company{https://www.perenco.com}{Perenco Cameroun}}{Douala}
+    {Jan. 2023} {
+                      \projet{Optimisation du contrôle qualité QHSE par une application mobile et des macros Excel}
+                      \begin{itemize}
+                        \item Développement d'une application mobile Android (Kotlin) et automatisation des contrôles en VBA Excel
+                        \item \textbf{Amélioration de 20\,\% de l'efficacité des audits} et meilleure conformité réglementaire
+                      \end{itemize}
+                    }
+                    {Kotlin,Android,Application mobile,VBA,Excel,QHSE,Audit,Conformité réglementaire,Oil \& Gas}
+  \emptySeparator
+  \experience[Stage académique]
+    {Oct. 2022}   {Développeur Back-End}{\companynolink{WinMoney Cameroun}}{Yaoundé}
+    {Juin 2022} {
+                      \projet{Développement de l'API RESTful d'une plateforme de création de contenus visuels}
+                      \begin{itemize}
+                        \item Conception et implémentation des endpoints REST et de la logique métier avec Spring Boot
+                        \item Support de \textbf{jusqu'à 500 requêtes/minute} avec un temps de réponse moyen de 300\,ms
+                      \end{itemize}
+                    }
+                    {Java,Spring Boot,API REST,Back-end,Performance,Scalabilité}
+  \emptySeparator
+  \experience[Stage académique]
+    {Oct. 2021}   {Développeur Back-End Junior}{\company{https://kiama.cm}{Kiama S.A}}{Yaoundé}
+    {Juin 2021} {
+                      \projet{Mise en place d'un système de recommandation multicanal (email/SMS) pour \company{https://ekiosque.cm}{ekiosque.cm}}
+                      \begin{itemize}
+                        \item Personnalisation des recommandations par machine learning (PHP-ML) et diffusion par email et SMS
+                        \item \textbf{Augmentation de 15\,\% de l'engagement utilisateur} et amélioration du taux de conversion
+                      \end{itemize}
+                    }
+                    {Symfony,PHP,PHP-ML,Machine Learning,Recommandation,Email,SMS,Presse numérique}
+\end{experiences}
