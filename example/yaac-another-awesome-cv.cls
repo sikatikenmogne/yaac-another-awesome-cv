@@ -171,6 +171,10 @@
 \defaultfontfeatures{Mapping=tex-text}
 %
 
+% Emboldening applied to Regular to build the medium weight (\cvmedium)
+% 0 = Regular (400), ~1.5 = close to Semibold (600)
+\newcommand*{\cvmediumweight}{0.8}
+
 % Define font to use according to localFont option
 \ifundef{\@local}
 {
@@ -181,18 +185,66 @@
     ItalicFont= Source Sans Pro Light Italic]
   % Semibold family: name, section titles and header links
   \newfontfamily\cvsemibold{Source Sans Pro Semibold}[
-    ItalicFont = Source Sans Pro Semibold Italic]
+    BoldFont = Source Sans Pro Semibold,
+    ItalicFont = Source Sans Pro Semibold Italic,
+    BoldItalicFont = Source Sans Pro Semibold Italic]
+  % Medium family (~500, between Regular and Semibold): slightly emboldened Regular
+  \newfontfamily\cvmedium{Source Sans Pro}[
+    FakeBold = \cvmediumweight,
+    BoldFont = Source Sans Pro,
+    BoldFeatures = {FakeBold = \cvmediumweight}]
 }
 {
-  \setmainfont{SourceSansPro-Light}[
-    Path = fonts/,
-    BoldFont = SourceSansPro-Regular,
-    BoldItalicFont = SourceSansPro-SemiboldIt,
-    ItalicFont = SourceSansPro-LightIt]
-  % Semibold family: name, section titles and header links
-  \newfontfamily\cvsemibold{SourceSansPro-Semibold}[
-    Path = fonts/,
-    ItalicFont = SourceSansPro-SemiboldIt]
+  % Where to load Source Sans Pro from, whatever the compilation directory:
+  % 1. the copy installed with the TeX distribution (MiKTeX/TeX Live), if any: loaded by file name
+  % 2. otherwise the local fonts/ folder: fonts/, ../fonts/ or ../../fonts/ from the working directory
+  %    (on Windows, Git may check out the example/fonts symlink as a plain text file)
+  % Never mix both: two different versions of the same font file give garbled glyphs.
+  \edef\cv@fontpath{\directlua{
+    if kpse.find_file("SourceSansPro-Light.otf", "opentype fonts") then
+      return
+    end
+    for _, dir in ipairs({ "fonts/", "../fonts/", "../../fonts/" }) do
+      local f = io.open(dir .. "SourceSansPro-Light.otf", "rb")
+      if f then f:close() tex.sprint(dir) return end
+    end
+    tex.sprint("fonts/")
+  }}
+  \ifx\cv@fontpath\@empty
+    \setmainfont{SourceSansPro-Light.otf}[
+      BoldFont = SourceSansPro-Regular.otf,
+      BoldItalicFont = SourceSansPro-SemiboldIt.otf,
+      ItalicFont = SourceSansPro-LightIt.otf]
+    % Semibold family: name, section titles and header links
+    % (bold = semibold itself, so \textbf around it keeps the family and its small caps)
+    \newfontfamily\cvsemibold{SourceSansPro-Semibold.otf}[
+      BoldFont = SourceSansPro-Semibold.otf,
+      ItalicFont = SourceSansPro-SemiboldIt.otf,
+      BoldItalicFont = SourceSansPro-SemiboldIt.otf]
+    % Medium family (~500, between Regular and Semibold): slightly emboldened Regular
+    \newfontfamily\cvmedium{SourceSansPro-Regular.otf}[
+      FakeBold = \cvmediumweight,
+      BoldFont = SourceSansPro-Regular.otf,
+      BoldFeatures = {FakeBold = \cvmediumweight}]
+  \else
+    \setmainfont{SourceSansPro-Light}[
+      Path = \cv@fontpath,
+      BoldFont = SourceSansPro-Regular,
+      BoldItalicFont = SourceSansPro-SemiboldIt,
+      ItalicFont = SourceSansPro-LightIt]
+    % Semibold family: name, section titles and header links
+    \newfontfamily\cvsemibold{SourceSansPro-Semibold}[
+      Path = \cv@fontpath,
+      BoldFont = SourceSansPro-Semibold,
+      ItalicFont = SourceSansPro-SemiboldIt,
+      BoldItalicFont = SourceSansPro-SemiboldIt]
+    % Medium family (~500, between Regular and Semibold): slightly emboldened Regular
+    \newfontfamily\cvmedium{SourceSansPro-Regular}[
+      Path = \cv@fontpath,
+      FakeBold = \cvmediumweight,
+      BoldFont = SourceSansPro-Regular,
+      BoldFeatures = {FakeBold = \cvmediumweight}]
+  \fi
 }
 
 %New length definition
@@ -230,6 +282,26 @@
 
 
 \newcommand\link[2]{\color{linkcolor}\href{#1}{#2}\color{Black} }
+
+% Coloured and underlined link to an organisation's website (company, school...)
+% Usage: \company{<url>}{<name>}
+% Without a website: \companynolink{<name>} (same colour, no underline)
+% Fine dotted underline, drawn in the current colour (does not break across lines: fine for short names)
+\newcommand{\cvdotuline}[1]{%
+  \tikz[baseline=(cvdotu.base)]{%
+    \node[inner sep=0pt, outer sep=0pt] (cvdotu) {#1};
+    \draw[line width=0.4pt, line cap=round, dash pattern=on 0pt off 1.2pt]
+      ([yshift=-1.6pt]cvdotu.base west) -- ([yshift=-1.6pt]cvdotu.base east);}}
+% \cv@companycase styles the displayed name only (never the URL): small capitals
+\newcommand{\cv@companycase}[1]{\textsc{#1}}
+\newcommand{\company}[2]{{\cvsemibold\color{black!75}\href{#1}{\cvdotuline{\cv@companycase{#2}}}}}
+\newcommand{\companynolink}[1]{{\cvsemibold\color{black!75}\cv@companycase{#1}}}
+
+% Certification name linked to its official page: bold, accent colour, fine dotted underline
+% Usage: \certification{<url>}{<certification name>}
+% Without link (e.g. certification in preparation): \certificationnolink{<certification name>}
+\newcommand{\certification}[2]{\leavevmode{\cvsemibold\color{accentcolor}\href{#1}{\cvdotuline{#2}}}}
+\newcommand{\certificationnolink}[1]{\leavevmode{\cvsemibold\color{accentcolor}#1}}
 \newcommand\important[1]{\textbf #1}
 
 % Create a tag
@@ -248,7 +320,8 @@
 
 % Render a link with its symbol
 % Usage; \sociallink{<icon>}{<label>}
-\newcommand{\sociallink}[3]{\mbox{\hspace{0.4em}\textcolor{symbolcolor}{#1}\hspace{0.35em}\link{#2}{#3}\unskip\hspace{0.4em}}}
+% The label gets the same fine dotted underline as \company, to show it is a link
+\newcommand{\sociallink}[3]{\mbox{\hspace{0.4em}\textcolor{symbolcolor}{#1}\hspace{0.35em}\link{#2}{\cvdotuline{#3}}\unskip\hspace{0.4em}}}
 
 % Separator between header contact items
 % Usage: \cvsep
@@ -324,7 +397,10 @@
 
 % Render author's mobile phone (optional)
 % Usage: \smartphone{<mobile phone number>}
-\newcommand*\smartphone[1]{\socialtext{\mobileSymbol}{#1}}
+% The number is also rendered as a tel: link (only '+' and digits are kept in the link)
+\newcommand*\smartphone[1]{%
+  \edef\cv@phonetel{\directlua{tex.sprint((string.gsub("\luaescapestring{#1}", "[^+0-9]", "")))}}%
+  \sociallink{\mobileSymbol}{tel:\cv@phonetel}{#1}}
 
 % Render author's tagline
 \newcommand\resumetitle[1]{
@@ -414,6 +490,21 @@
   \fancyfoot[R]{\cvfootersize#4}
 }
 
+% Sworn statement placed right after the last section (French CV usage):
+% one right-aligned paragraph followed by the name, kept together on one page
+% Usage: \makecvattestation{<place>}[<date>]   (date defaults to \today)
+\NewDocumentCommand\makecvattestation{m O{\today}}{%
+  \par\vspace{1.2em}\noindent
+  \begin{minipage}{\linewidth}
+    \raggedleft\small\color{black!75}%
+    Je certifie sur l'honneur l'exactitude des informations contenues dans ce CV.\par
+    \vspace{3pt}%
+    Fait le #2 à #1.\par
+    \vspace{2pt}%
+    {\cvsemibold\@firstname\ \@lastname}\par
+  \end{minipage}%
+}
+
 % Resume part title definition
 \newcommand\sectionTitle[2]{\section{\texorpdfstring{\color{accentcolor}#2\enspace \textsc{#1}}{#1}}}
 
@@ -445,17 +536,30 @@
 \newcolumntype{Y}{>{\raggedleft}p{\leftcolumnlength}}
 
 % Define the 'scholarship' environment
+% Full text width: the description column ends exactly on the right margin,
+% so \hfill can push content (e.g. the issuing organisation) against it
+% (\tabularx/\endtabularx form is required inside \newenvironment)
 \newenvironment{scholarship}{%
-  \begin{tabular}{Y p{\rightcolumnlength}}
+  \noindent\tabularx{\linewidth}{Y X@{}}
 }{%
-  \end{tabular}
+  \endtabularx
 }
 
 % Render a scholarshipentry in the scolarship environment
 % Usage: \scholarshipentry{<date>}{<description>}
+% The date uses the same typography as the dates of \experience (bold)
 \newcommand\scholarshipentry[2]{
-  #1    &  #2 \\
+  \textbf{#1}    &  #2 \\
 }
+
+% Render a degree title (bold, accent colour) in a scholarshipentry
+% Usage: \degree{<degree title>}
+% Project / context title inside an experience description (medium weight)
+% Usage: \projet{<project title>}
+\newcommand\projet[1]{\leavevmode{\bfseries#1}}
+
+% Same style as the job title in \experience: 10.8pt, semibold, accent colour
+\newcommand\degree[1]{\leavevmode{\fontsize{10.8pt}{12pt}\selectfont\cvsemibold\color{accentcolor}#1}}
 
 % Define the 'skills' environment
 \newenvironment{skills}{%
@@ -489,8 +593,11 @@
 %                    {<Technology list>}
 % Optional first argument: contract type (Stage, CDD, CDI...), printed under the start date
 % Usage: \experience[<contract>]{<End date>}{<Title>}{<Enterprise>}{<Country>}{<Start date>}{<Description>}{<Tags>}
-\newcommand\experience[8][]{
-  \textbf{#2} & \textbf{{\fontsize{10.8pt}{12pt}\selectfont#3}, \textsc{#4}, #5}   								\\*
+% The <Tags> argument is optional: omit it (or give {}) to skip the tag row
+\NewDocumentCommand\experience{O{} m m m m m m g}{
+  \IfNoValueTF{#8}{\cv@experience{#1}{#2}{#3}{#4}{#5}{#6}{#7}{}}{\cv@experience{#1}{#2}{#3}{#4}{#5}{#6}{#7}{#8}}}
+\newcommand\cv@experience[8]{
+  \textbf{#2} & \textbf{{\fontsize{10.8pt}{12pt}\selectfont\cvsemibold\color{accentcolor}#3}, #4, #5}   								\\*
   \begin{tabular}[t]{@{}r@{}}\textbf{#6}\ifstrempty{#1}{}{\\[-1pt]{\footnotesize\bfseries\itshape\color{black!70}\begin{tabular}[t]{@{}r@{}}#1\end{tabular}}}\end{tabular}
                  & \begin{minipage}[t]{\rightcolumnlength}
   					         #7

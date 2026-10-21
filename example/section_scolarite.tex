@@ -10,18 +10,19 @@
 % Template license:
 % CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
 
-% Lien coloré (même rendu que dans les expériences) : \company{<url>}{<nom>}
-\providecommand{\company}[2]{{\color{linkcolor}\href{#1}{#2}}}
+% Commandes de mise en forme définies dans yaac-another-awesome-cv.cls :
+%   \degree{<intitulé>}      intitulé du diplôme (même style que le titre du poste)
+%   \company{<url>}{<nom>}   école avec lien (petites capitales, pointillé)
 
 %Section: Formation
 \sectionTitle{Formation}{\faGraduationCap}
 
 \begin{scholarship}
 	\scholarshipentry{2022 -- 2025}
-					{\textbf{Ingénieur Informatique, Génie Logiciel (BAC+5)} -- \textbf{\company{https://ucac-icam.com/}{Institut UCAC-ICAM}} (Ex IST-AC), Douala\newline
+					{\degree{Ingénieur Informatique, Génie Logiciel (BAC+5)} -- \textbf{\company{https://ucac-icam.com/}{Institut UCAC-ICAM}} (Ex IST-AC), \textbf{Douala}\newline
 					\small{Gestion de projet, conduite du changement, méthodes agiles (Scrum, Kanban), management des SI, entrepreneuriat.\newline Architecture logicielle avancée, développement d'applications web et mobile, DevOps, modélisation (UML, SysML, BPM).}}
 	\scholarshipentry{2019 -- 2022}
-					{\textbf{Licence en Informatique, Génie Logiciel (BAC+3)} -- \textbf{\company{https://www.iai-siege.com/}{Institut Africain d'Informatique}}, Yaoundé\newline
+					{\degree{Licence en Informatique, Génie Logiciel (BAC+3)} -- \textbf{\company{https://www.iai-siege.com/}{Institut Africain d'Informatique}}, \textbf{Yaoundé}\newline
 					\small{Administration de bases de données (SQL, NoSQL), conception d'API, administration systèmes et réseaux (Windows/Linux).}}
 \end{scholarship}
 
@@ -29,8 +30,9 @@
 \sectionTitle{Certifications}{\faCertificate}
 
 \begin{scholarship}
-	\scholarshipentry{11/2024}{\textbf{Python Essentials 2} -- Cisco Networking Academy}
-	\scholarshipentry{10/2024}{\textbf{PCEP} -- Certified Entry-Level Python Programmer -- OpenEDG Python Institute}
-	\scholarshipentry{04/2024}{\textbf{TOEIC} (800/990) -- ETS EMEA}
-	\scholarshipentry{08/2023}{\textbf{Scrum Fundamentals Certified} -- VMEdu Inc}
+	% Certification à gauche, organisme délivreur (avec lien) collé à la marge droite
+	\scholarshipentry{En préparation}{\certificationnolink{ISTQB -- Certified Tester Foundation Level} \hfill \companynolink{International Software Quality Institute}}
+	\scholarshipentry{10/2024}{\certification{https://verify.openedg.org/?id=zWHb.KrfY.aOx8}{PCEP -- Certified Entry-Level Python Programmer} \hfill \company{https://pythoninstitute.org/}{OpenEDG Python Institute}}
+	\scholarshipentry{04/2024}{\certification{https://www.ets.org/toeic.html}{TOEIC -- Test of English for International Communication} \hfill \company{https://www.etsglobal.org/}{ETS EMEA}}
+	\scholarshipentry{08/2023}{\certification{https://www.scrumstudy.com/certification/scrum-fundamentals-certified}{Scrum Fundamentals Certified} \hfill \company{https://www.vmedu.com/}{VMEdu Inc}}
 \end{scholarship}

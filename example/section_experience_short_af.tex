@@ -1,0 +1,98 @@
+% Awesome Source CV LaTeX Template
+%
+% This template has been downloaded from:
+% https://github.com/darwiin/awesome-neue-latex-cv
+%
+% Author:
+% Christophe Roger
+% Contenu adapté pour : Samuel SIKATI KENMOGNE
+% Version : Analyste Fonctionnel SI & Recette
+%
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+
+% Commandes de mise en forme définies dans yaac-another-awesome-cv.cls :
+%   \company{<url>}{<nom>}   entreprise avec lien (petites capitales, pointillé)
+%   \companynolink{<nom>}    entreprise sans site officiel
+%   \projet{<intitulé>}      intitulé de projet / contexte (poids medium)
+
+%Section: Work Experience
+\sectionTitle{Expériences Professionnelles}{\faSuitcase}
+\begin{experiences}
+  \experience[CDD]
+    {Aujourd'hui}   {Analyste Fonctionnel SI \& Assurance Qualité}{\company{https://www.orange.cm}{Orange Cameroun}}{Douala}
+    {Nov. 2025} {
+                      \projet{Migration d'une plateforme mobile money : analyse fonctionnelle et homologation}
+                      \begin{itemize}
+                        \item Contribution aux spécifications fonctionnelles : formalisation des règles de gestion et des exigences
+                        \item Contribution à la stratégie de recette et traduction des exigences en \textbf{1\,547 cas de test} (cahiers de recette)
+                        \item Qualification de la bascule : migration de données, plan de reprise d'activité (PRA), performance
+                        \item Animation des campagnes UAT avec les métiers et qualification de \textbf{262 anomalies} avant la bascule
+                        \item Automatisation de \textbf{640 tests de régression} API (Bruno) et web (Playwright), exécutés en CI
+                      \end{itemize}
+                      \projet{Mise en place d'une solution de gestion du courrier entrant (Maarch Courrier)}
+                      \begin{itemize}
+                        \item Paramétrage de la solution, validation des exigences métier et recette fonctionnelle (tests d'acceptation)
+                        \item Conduite du changement : documentation, formation des utilisateurs et support au déploiement
+                      \end{itemize}
+                    }
+                    {BPMN,Spécifications fonctionnelles,UAT,Migration de données,PRA,Mobile Money,USSD,Maarch Courrier}
+  \emptySeparator
+  \experience[Stage]
+    {Juin 2025}   {Ingénieur Logiciel Junior}{\company{https://societegenerale.cm/fr/}{Société Générale Cameroun}}{Douala}
+    {Jan. 2025} {
+                      \projet{Conception d'une solution de suivi des anomalies opérationnelles bancaires}
+                      \begin{itemize}
+                        \item Modélisation UML et BPMN du workflow de plans d'action correctifs (échéances, relances, preuves)
+                        \item Conception du modèle de données du suivi des anomalies et des plans d'action
+                        \item Développement (.NET Core), tableaux de bord KPI, automatisation du reporting et tests E2E
+                        \item \textbf{Réduction de 25\,\% du temps de traitement} des anomalies et \textbf{de 35\,\% des erreurs manuelles}
+                      \end{itemize}
+                    }
+                    {UML,BPMN,Modèle de données,Workflow,KPI,Reporting,Traçabilité,.NET Core,Banque}
+  \emptySeparator
+  \experience[Stage]
+    {Fév. 2024}   {Développeur Logiciel}{\company{https://www.boissonsducameroun.com}{Boissons du Cameroun}}{Douala}
+    {Sept. 2023} {
+                      \projet{Digitalisation du processus d'analyse des causes profondes des incidents (SCAT -- DNV)}
+                      \begin{itemize}
+                        \item Analyse du processus d'investigation et modélisation de la matrice SCAT (contacts, causes, actions)
+                        \item Développement d'une application web (Symfony, Flask) dédiée aux investigations d'incidents
+                        \item \textbf{Réduction de 40\,\% du temps d'investigation} et amélioration de la qualité des rapports d'analyse
+                      \end{itemize}
+                    }
+                    {Analyse de processus,Modélisation métier,SCAT -- DNV,Analyse des causes profondes,HSE,Digitalisation,Symfony}
+  \emptySeparator
+  \experience[Stage]
+    {Avr. 2023}   {Analyste Programmeur}{\company{https://www.perenco.com}{Perenco Cameroun}}{Douala}
+    {Jan. 2023} {
+                      \projet{Optimisation du contrôle qualité QHSE par une application mobile et des macros Excel}
+                      \begin{itemize}
+                        \item Développement d'une application mobile Android (Kotlin) et automatisation des contrôles en VBA Excel
+                        \item \textbf{Amélioration de 20\,\% de l'efficacité des audits} et meilleure conformité réglementaire
+                      \end{itemize}
+                    }
+                    {QHSE,Contrôle qualité,Audit,Conformité réglementaire,Automatisation des contrôles,Oil \& Gas,Kotlin,VBA Excel}
+  \emptySeparator
+  \experience[Stage]
+    {Oct. 2022}   {Développeur Back-End}{\companynolink{WinMoney Cameroun}}{Yaoundé}
+    {Juin 2022} {
+                      \projet{Développement de l'API RESTful d'une plateforme de création de contenus visuels}
+                      \begin{itemize}
+                        \item Conception et implémentation des endpoints REST et de la logique métier avec Spring Boot
+                        \item Support de \textbf{jusqu'à 500 requêtes/minute} avec un temps de réponse moyen de 300\,ms
+                      \end{itemize}
+                    }
+                    {API REST,Logique métier,Règles de gestion,Performance,Spring Boot,Java}
+  \emptySeparator
+  \experience[Stage]
+    {Oct. 2021}   {Développeur Back-End Junior}{\company{https://kiama.cm}{Kiama S.A}}{Yaoundé}
+    {Juin 2021} {
+                      \projet{Mise en place d'un système de recommandation multicanal (email/SMS) pour \company{https://ekiosque.cm}{ekiosque.cm}}
+                      \begin{itemize}
+                        \item Personnalisation des recommandations par machine learning (PHP-ML) et diffusion par email et SMS
+                        \item \textbf{Augmentation de 15\,\% de l'engagement utilisateur} et amélioration du taux de conversion
+                      \end{itemize}
+                    }
+                    {Parcours client,Multicanal,Email/SMS,Engagement utilisateur,Taux de conversion,Presse numérique,Machine Learning}
+\end{experiences}

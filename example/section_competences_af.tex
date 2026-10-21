@@ -1,0 +1,34 @@
+% Awesome Source CV LaTeX Template
+%
+% This template has been downloaded from:
+% https://github.com/darwiin/awesome-neue-latex-cv
+%
+% Author:
+% Christophe Roger
+% Contenu adapté pour : Samuel SIKATI KENMOGNE
+% Version : Analyste Fonctionnel SI & Recette
+%
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+
+% Variante de l'environnement keywords : la colonne de droite occupe toute la largeur restante,
+% calculée d'après le libellé le plus long (évite les retours à la ligne inutiles)
+\newlength{\afkwlabel}
+\settowidth{\afkwlabel}{\textbf{Agilité et conduite du changement}}
+\newenvironment{afkeywords}{%
+  \renewcommand{\arraystretch}{1.1}%
+  \begin{tabular}{@{}>{\raggedleft}p{\afkwlabel}>{\raggedright\arraybackslash}p{\dimexpr\linewidth-\afkwlabel-2\tabcolsep\relax}@{}}
+}{%
+  \end{tabular}
+}
+
+%Section compétences
+\sectionTitle{Compétences}{\faTasks}
+
+	\begin{afkeywords}
+		\keywordsentry{Ingénierie des exigences}{Collecte et analyse des besoins, spécifications fonctionnelles, règles de gestion, user stories}
+		\keywordsentry{Modélisation}{Processus métier (BPMN), UML (cas d'utilisation, activités, états), SysML, données (MCD/MLD)}
+		\keywordsentry{Recette et homologation}{Stratégie et cahiers de recette, UAT, tests E2E, qualification et suivi des anomalies (Squash TM)}
+		\keywordsentry{Domaines métier}{Mobile money et télécoms, banque (risques opérationnels), QHSE, gestion documentaire}
+		\keywordsentry{Agilité et conduite du changement}{Scrum, Kanban \enspace | \enspace formation des utilisateurs, documentation, support au déploiement}
+	\end{afkeywords}

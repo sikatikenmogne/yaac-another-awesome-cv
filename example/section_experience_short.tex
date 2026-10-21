@@ -10,12 +10,10 @@
 % Template license:
 % CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
 
-% Lien coloré vers le site de l'entreprise : \company{<url>}{<nom>}
-\providecommand{\company}[2]{{\color{linkcolor}\href{#1}{#2}}}
-% Même rendu sans lien, quand aucun site officiel n'est disponible : \companynolink{<nom>}
-\providecommand{\companynolink}[1]{{\color{linkcolor}#1}}
-% Intitulé de projet / contexte, distinct du titre du poste : \projet{<intitulé>}
-\providecommand{\projet}[1]{\leavevmode{\bfseries\itshape\color{black!70}#1}}
+% Commandes de mise en forme définies dans yaac-another-awesome-cv.cls :
+%   \company{<url>}{<nom>}   entreprise avec lien (petites capitales, pointillé)
+%   \companynolink{<nom>}    entreprise sans site officiel
+%   \projet{<intitulé>}      intitulé de projet / contexte (poids medium)
 
 %Section: Work Experience at the top
 \sectionTitle{Expériences Professionnelles}{\faSuitcase}
@@ -40,7 +38,7 @@
                     }
                     {UAT,Tests E2E,USSD,Migration de données,PRA,Régression,Performance,Playwright,Bruno,Maarch Courrier}
   \emptySeparator
-  \experience[Stage de\\fin d'études]
+  \experience[Stage]
     {Juin 2025}   {Ingénieur Logiciel Junior}{\company{https://societegenerale.cm/fr/}{Société Générale Cameroun}}{Douala}
     {Jan. 2025} {
                       \projet{Développement d'une solution de suivi des anomalies opérationnelles bancaires}
@@ -52,7 +50,7 @@
                     }
                     {.NET Core,C\#,Développement web,KPI,Tableaux de bord,Traçabilité,Gestion des anomalies,Banque}
   \emptySeparator
-  \experience[Stage académique]
+  \experience[Stage]
     {Fév. 2024}   {Développeur Logiciel}{\company{https://www.boissonsducameroun.com}{Boissons du Cameroun}}{Douala}
     {Sept. 2023} {
                       \projet{Digitalisation du processus d'analyse des causes profondes des incidents (SCAT -- DNV)}
@@ -64,7 +62,7 @@
                     }
                     {Symfony,PHP,Flask,Python,Application web,SCAT -- DNV,HSE,Analyse des causes profondes}
   \emptySeparator
-  \experience[Stage académique]
+  \experience[Stage]
     {Avr. 2023}   {Analyste Programmeur}{\company{https://www.perenco.com}{Perenco Cameroun}}{Douala}
     {Jan. 2023} {
                       \projet{Optimisation du contrôle qualité QHSE par une application mobile et des macros Excel}
@@ -75,7 +73,7 @@
                     }
                     {Kotlin,Android,Application mobile,VBA,Excel,QHSE,Audit,Conformité réglementaire,Oil \& Gas}
   \emptySeparator
-  \experience[Stage académique]
+  \experience[Stage]
     {Oct. 2022}   {Développeur Back-End}{\companynolink{WinMoney Cameroun}}{Yaoundé}
     {Juin 2022} {
                       \projet{Développement de l'API RESTful d'une plateforme de création de contenus visuels}
@@ -86,7 +84,7 @@
                     }
                     {Java,Spring Boot,API REST,Back-end,Performance,Scalabilité}
   \emptySeparator
-  \experience[Stage académique]
+  \experience[Stage]
     {Oct. 2021}   {Développeur Back-End Junior}{\company{https://kiama.cm}{Kiama S.A}}{Yaoundé}
     {Juin 2021} {
                       \projet{Mise en place d'un système de recommandation multicanal (email/SMS) pour \company{https://ekiosque.cm}{ekiosque.cm}}
