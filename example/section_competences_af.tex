@@ -11,24 +11,19 @@
 % Template license:
 % CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
 
-% Variante de l'environnement keywords : la colonne de droite occupe toute la largeur restante,
-% calculée d'après le libellé le plus long (évite les retours à la ligne inutiles)
-\newlength{\afkwlabel}
-\settowidth{\afkwlabel}{\textbf{Agilité et conduite du changement}}
-\newenvironment{afkeywords}{%
-  \renewcommand{\arraystretch}{1.1}%
-  \begin{tabular}{@{}>{\raggedleft}p{\afkwlabel}>{\raggedright\arraybackslash}p{\dimexpr\linewidth-\afkwlabel-2\tabcolsep\relax}@{}}
-}{%
-  \end{tabular}
-}
+% Environnement keywords (défini dans la classe) : la colonne des libellés prend la largeur
+% du libellé le plus long, la colonne de droite occupe toute la largeur restante
 
 %Section compétences
 \sectionTitle{Compétences}{\faTasks}
 
-	\begin{afkeywords}
-		\keywordsentry{Ingénierie des exigences}{Collecte et analyse des besoins, spécifications fonctionnelles, règles de gestion, user stories}
-		\keywordsentry{Modélisation}{Processus métier (BPMN), UML (cas d'utilisation, activités, états), SysML, données (MCD/MLD)}
-		\keywordsentry{Recette et homologation}{Stratégie et cahiers de recette, UAT, tests E2E, qualification et suivi des anomalies (Squash TM)}
-		\keywordsentry{Domaines métier}{Mobile money et télécoms, banque (risques opérationnels), QHSE, gestion documentaire}
-		\keywordsentry{Agilité et conduite du changement}{Scrum, Kanban \enspace | \enspace formation des utilisateurs, documentation, support au déploiement}
-	\end{afkeywords}
+	\begin{keywords}
+		\keywordsentry{Ingénierie des exigences}{Recueil et documentation des besoins métiers, rédaction de spécifications technico-fonctionnelles}
+		\keywordsentry{}{User stories, règles de gestion, traçabilité des exigences}
+		\keywordsentry{Modélisation}{Cartographie de processus (BPMN), UML (cas d'utilisation, activités, états), SysML, données (MCD/MLD)}
+		\keywordsentry{Conduite du changement}{Formation des utilisateurs, documentation, support au déploiement}
+		\keywordsentry{Assurance qualité}{Stratégie et cas de test fonctionnels, intégrés et de régression, UAT, gestion des anomalies}
+		\keywordsentry{Agilité et livraison continue}{Scrum, Kanban, cycle de vie du logiciel (SDLC), pipelines CI, amélioration continue}
+		\keywordsentry{Outils}{draw.io, PlantUML \enspace | \enspace Azure DevOps, Squash TM, Excel \enspace | \enspace Postman, SOAP UI, Bruno, Playwright, Locust}
+		\keywordsentry{Domaines métier}{Mobile money et télécoms, banque, QHSE (Oil \& Gas, agroalimentaire), gestion documentaire}
+	\end{keywords}
